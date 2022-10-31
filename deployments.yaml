@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dart-task01-deployment
+  labels:
+    app: dart
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dart
+  template:
+    metadata:
+      labels:
+        app: dart
+    spec:
+      containers:
+      - name: dartcon
+        image: benbenjamin/task00:1.0
+        ports:
+        - containerPort: 5000
